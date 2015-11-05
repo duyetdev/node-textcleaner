@@ -4,7 +4,7 @@
   "description": "Nodejs text n-grams",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,10 @@
   "bugs": {
     "url": "https://github.com/duyetdev/node-ngram/issues"
   },
-  "homepage": "https://github.com/duyetdev/node-ngram#readme"
+  "homepage": "https://github.com/duyetdev/node-ngram#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "^2.3.3"
+  }
 }

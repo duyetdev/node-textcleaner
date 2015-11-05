@@ -1,6 +1,14 @@
 # node-ngram
 
-Ngram for Nodejs
+Ngram for Nodejs.
+
+# Instalation 
+
+```sh
+npm install node-ngram
+```
+
+# Example
 
 ```js
 var Ngram = require('node-ngram');
@@ -10,8 +18,14 @@ var ngram = new Ngram({
 });
 
 console.log(ngram.ngram("Le Van Duyet"));
+// => [["Le", "Van"], ["Van", "Duyet"]]
 console.log(ngram.ngram("Le Van Duyet", 3));
 console.log(ngram.ngram("Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit."));
+```
+
+# Test
+```sh
+npm test
 ```
 
 # How to contribute

@@ -56,6 +56,30 @@ Ngrams.prototype.feedAll = function(words) {
     });
 };
 
+/**
+ * Sort ngram by popularity
+ */
+Ngrams.prototype.ranks = function() {
+    if (this._ranks === undefined) {
+        var g = this;
+        this.keys.sort(function(a, b) {
+            return g.stats[a] - g.stats[b];
+        });
+        var rank = 0;
+        var ranks = {};
+        var before = undefined;
+        this.keys.reverse().forEach(function(key) {
+            if (g.stats[key] != before) {
+                before = g.stats[key];
+                rank += 1;
+            }
+            ranks[key] = rank;
+        });
+        this._ranks = ranks;
+    }
+    return this._ranks;
+};
+
 exports.Ngrams = Ngrams;
 
 String.prototype.tokens = function(filter) {

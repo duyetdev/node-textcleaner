@@ -28,12 +28,12 @@ Ngrams.prototype.ngram = function(sentences, n) {
 
     var g = this;
 
-    var ngramNumber = n || this.ngram || 2;
+    var ngramNumber = n || this.n || 2;
     var ngrams = [];
     var l = words.length;
-    
+
     for (var i = 0; i < l; i++) {
-        var ngram = _.slice(words, i, _.min(i+ngramNumber, l));
+        var ngram = _.slice(words, i, Math.min(i+ngramNumber, l));
         ngrams.push(ngram);
     }
 

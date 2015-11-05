@@ -80,6 +80,38 @@ Ngrams.prototype.ranks = function() {
     return this._ranks;
 };
 
+/**
+ * Feed Ngrams from a lm file
+ */
+Ngrams.prototype.readLm = function(path) {
+    var lm = fs.readFileSync(path, 'utf8');
+    var n = this;
+    lm.split('\n').forEach(function(line) {
+        var kv = line.split('\t ');
+        //console.log(kv[0].length);
+        if (kv.length > 1 && kv[0].length >= n.min && kv[0].length <= n.max) {
+            n.keys.push(kv[0]);
+            n.stats[kv[0]] = parseInt(kv[1], 10);
+        }
+    });
+};
+
+/**
+ * Distance between two Ngrams
+ */
+Ngrams.prototype.distance = function(other) {
+    var distance = 0;
+    var n = this;
+    this.keys.forEach(function(key) {
+        if (other.stats[key] === undefined) {
+            distance += 2000;
+        } else {
+            distance += Math.abs(n.ranks()[key] - other.ranks()[key]);
+        }
+    });
+    return distance;
+};
+
 exports.Ngrams = Ngrams;
 
 String.prototype.tokens = function(filter) {

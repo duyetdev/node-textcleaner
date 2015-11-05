@@ -1,6 +1,6 @@
 {
   "name": "node-ngram",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Nodejs text n-grams",
   "main": "index.js",
   "scripts": {

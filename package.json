@@ -1,30 +1,29 @@
 {
-  "name": "node-ngram",
+  "name": "node-textcleaner",
   "version": "0.0.6",
-  "description": "Nodejs text n-grams",
+  "description": "Nodejs text cleaner, for Data Mining in JS",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/duyetdev/node-ngram.git"
+    "url": "git+https://github.com/duyetdev/node-textcleaner.git"
   },
   "keywords": [
     "node",
     "nlp",
-    "ngrams",
+    "cleaner",
     "text",
     "processing"
   ],
   "author": "Van-Duyet Le",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/duyetdev/node-ngram/issues"
+    "url": "https://github.com/duyetdev/node-textcleaner/issues"
   },
-  "homepage": "https://github.com/duyetdev/node-ngram#readme",
+  "homepage": "https://github.com/duyetdev/node-textcleaner#readme",
   "dependencies": {
-    "lodash": "^3.10.1"
   },
   "devDependencies": {
     "mocha": "^2.3.3"

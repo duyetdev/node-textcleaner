@@ -6,85 +6,28 @@
     
     if (typeof _ === 'undefined') {
         if (has_require) {
-            var util = require('util');
-            var fs = require('fs');
-            var _ = require('lodash');
+            // Require module here
+        } else {
+        // Error here
         }
-    else 
-        throw new Error('Node-Ngram requires lodash');
     }
 
+    function TextCleaner(text, lower) {
+        var lower = lower || true;
 
+        var resultText = text.replace(/(^[\\("']+)|([,:;.?!#)"'|\\]+$)/, '');
+        if (lower) resultText = resultText.toLowerCase();
 
-
-    function cleanup(text) {
-        return text.replace(/(^[\\("']+)|([,:;.?!)"'|\\]+$)/, '').toLowerCase();
+        return resultText;
     }
-
-    var Ngrams = function(options) {
-        var options = options || {};
-
-        this.n = options.n || 2;
-
-        this.keys = [];
-    };
-
-    /**
-     * build ngrams from a sentences, an array of words
-     */
-    Ngrams.prototype.ngram = function(sentences, n) {
-        if (typeof sentences === 'string')
-            var words = sentences.tokens();
-        else if (typeof sentences === 'array')
-            var words = sentences; // Is array
-        else 
-            throw new Error("Input must be String or Array");
-
-        var g = this;
-
-        var ngramNumber = n || this.n || 2;
-        var ngrams = [];
-        var l = words.length;
-
-        for (var i = 0; i < l; i++) {
-            var ngram = _.slice(words, i, Math.min(i+ngramNumber, l));
-            ngrams.push(ngram);
-        }
-
-        return ngrams;
-    };
-
-    /**
-     * Short code for ngram(2)
-     */
-    Ngrams.prototype.bigram = function(sentences) {
-        return this.ngram(sentences, 2);
-    }
-
-    /**
-     * Short code for ngram(3)
-     */
-    Ngrams.prototype.trigram = function(sentences) {
-        return this.ngram(sentences, 2);
-    }
-
-    String.prototype.tokens = function(filter) {
-        var s = this;
-        return this.split(/\s+/).map(function(word) {
-            if (filter !== undefined) {
-                return filter.call(s, word);
-            }
-            return cleanup(word).toLowerCase();
-        });
-    };
 
     // Exports
     if( typeof exports !== 'undefined' ) {
         if( typeof module !== 'undefined' && module.exports ) {
-            exports = module.exports = Ngrams;
+            exports = module.exports = TextCleaner;
         }
-        exports.Ngrams = Ngrams;
+        exports.textcleaner = TextCleaner;
     } else {
-        root.Ngrams = Ngrams;
+        root.textcleaner = TextCleaner;
     }
 }).call(this);

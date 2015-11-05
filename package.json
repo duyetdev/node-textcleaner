@@ -1,6 +1,6 @@
 {
   "name": "node-textcleaner",
-  "version": "0.0.6",
+  "version": "0.0.1",
   "description": "Nodejs text cleaner, for Data Mining in JS",
   "main": "index.js",
   "scripts": {

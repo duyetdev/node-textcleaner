@@ -40,6 +40,21 @@ Ngrams.prototype.ngram = function(sentences, n) {
     return ngrams;
 };
 
+/**
+ * Short code for ngram(2)
+ */
+Ngrams.prototype.bigram = function(sentences) {
+    return this.ngram(sentences, 2);
+}
+
+/**
+ * Short code for ngram(3)
+ */
+Ngrams.prototype.trigram = function(sentences) {
+    return this.ngram(sentences, 2);
+}
+
+
 module.exports = Ngrams;
 
 String.prototype.tokens = function(filter) {

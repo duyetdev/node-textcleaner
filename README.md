@@ -19,8 +19,11 @@ var ngram = new Ngram({
 
 console.log(ngram.ngram("Le Van Duyet"));
 // => [["Le", "Van"], ["Van", "Duyet"]]
-console.log(ngram.ngram("Le Van Duyet", 3));
-console.log(ngram.ngram("Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit."));
+
+console.log(ngram.trigram("Van-Duyet Le Developer from Vietnam"));
+
+console.log(ngram.ngram("Neque porro quisquam est quitur, adipisci velit."));
+
 ```
 
 # Test
